@@ -1,0 +1,695 @@
+/* Defino los colores principales del sistema. */
+:root {
+  --primary: #4f46e5;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+}
+
+/* Configuro las dimensiones de los elementos. */
+* {
+  box-sizing: border-box;
+}
+
+/* Defino los estilos generales de la aplicación. */
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* Mantengo una tipografía consistente en los controles. */
+button,
+input {
+  font: inherit;
+}
+
+/* Organizo el menú y el contenido en dos columnas. */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Diseño el menú lateral. */
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  padding: 32px 20px;
+  background: #0f172a;
+  color: #ffffff;
+}
+
+/* Separo el nombre del sistema de la navegación. */
+.sidebar-brand {
+  margin-bottom: 48px;
+}
+
+/* Defino el estilo del nombre del sistema. */
+.sidebar-brand h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+/* Defino el estilo del subtítulo. */
+.sidebar-brand span {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+/* Organizo los enlaces verticalmente. */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Diseño los enlaces del menú. */
+.sidebar-nav a {
+  padding: 14px 16px;
+  border-radius: 10px;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+/* Destaco el enlace al pasar el cursor. */
+.sidebar-nav a:hover {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+/* Destaco la página seleccionada. */
+.sidebar-nav a.active {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+/* Configuro el área principal de contenido. */
+.app-content {
+  flex: 1;
+  min-width: 0;
+  padding: 40px;
+}
+
+/* Adapto el diseño a pantallas pequeñas. */
+@media (max-width: 768px) {
+  /* Coloco el menú encima del contenido. */
+  .app-layout {
+    flex-direction: column;
+  }
+
+  /* Adapto el menú al ancho disponible. */
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    padding: 20px;
+  }
+
+  /* Reduzco el espacio debajo del nombre. */
+  .sidebar-brand {
+    margin-bottom: 20px;
+  }
+
+  /* Coloco los enlaces uno al lado del otro. */
+  .sidebar-nav {
+    flex-direction: row;
+  }
+
+  /* Ajusto el espacio del contenido. */
+  .app-content {
+    padding: 20px;
+  }
+}
+
+/* Organizo el contenido del Dashboard. */
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Agrego espacio debajo del encabezado. */
+.dashboard-header {
+  margin-bottom: 32px;
+}
+
+/* Diseño la etiqueta superior. */
+.dashboard-label {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Diseño el título principal. */
+.dashboard-header h1 {
+  margin: 12px 0;
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 700;
+}
+
+/* Diseño la descripción del encabezado. */
+.dashboard-header p {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+/* Diseño la tarjeta de bienvenida. */
+.dashboard-welcome {
+  padding: 40px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+/* Diseño el título de bienvenida. */
+.dashboard-welcome h2 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+/* Diseño la descripción de bienvenida. */
+.dashboard-welcome p {
+  max-width: 520px;
+  margin-bottom: 28px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Diseño el botón principal. */
+.dashboard-button {
+  display: inline-block;
+  padding: 12px 20px;
+  background: var(--primary);
+  color: #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+/* Agrego interacción al botón. */
+.dashboard-button:hover {
+  background: #4338ca;
+}
+
+/* Adapto la tarjeta a dispositivos móviles. */
+@media (max-width: 768px) {
+  /* Reduzco el espacio interior. */
+  .dashboard-welcome {
+    padding: 24px;
+  }
+}
+/* Organizo las tarjetas de estadísticas. */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+/* Diseño la tarjeta de empleados. */
+.stat-card {
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+/* Diseño el nombre de la estadística. */
+.stat-card span {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Destaco la cantidad de empleados. */
+.stat-card h2 {
+  margin: 16px 0 8px;
+  color: var(--primary);
+  font-size: 40px;
+  font-weight: 700;
+}
+
+/* Diseño la descripción de la tarjeta. */
+.stat-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+/* Organizo el contenido de la página de empleados. */
+.employees-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Defino el espacio debajo del encabezado. */
+.employees-header {
+  margin-bottom: 32px;
+}
+
+/* Diseño la etiqueta de Recursos Humanos. */
+.employees-label {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Diseño el título principal. */
+.employees-header h1 {
+  margin: 12px 0;
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 700;
+}
+
+/* Diseño la descripción de la sección. */
+.employees-header p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Diseño la tarjeta del formulario. */
+.employees-form-card {
+  padding: 32px;
+  margin-bottom: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+/* Diseño el título del formulario. */
+.employees-form-card h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+/* Diseño la descripción del formulario. */
+.employees-form-card > p {
+  margin: 0 0 24px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Organizo los campos del formulario en dos columnas. */
+.employee-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* Organizo las etiquetas y los campos verticalmente. */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Diseño las etiquetas de los campos. */
+.form-field label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Diseño los campos de entrada. */
+.form-field input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Destaco el campo seleccionado. */
+.form-field input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+/* Adapto el formulario a celulares. */
+@media (max-width: 600px) {
+  /* Muestro una sola columna. */
+  .employee-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Diseño el botón para registrar empleados. */
+.form-submit {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+/* Cambio el color al pasar el cursor. */
+.form-submit:hover {
+  background: #4338ca;
+}
+
+/* Agrego una animación al presionar el botón. */
+.form-submit:active {
+  transform: scale(0.98);
+}
+
+/* Destaco el botón al navegar con teclado. */
+.form-submit:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 3px;
+}
+
+/* Diferencio el botón mientras se registra un empleado. */
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Diseño la tarjeta del listado de empleados. */
+.employees-list-card {
+  padding: 32px;
+  margin-bottom: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+/* Diseño el título del listado. */
+.employees-list-card h2 {
+  margin: 0 0 24px;
+  font-size: 20px;
+}
+
+/* Adapto la tarjeta a dispositivos móviles. */
+@media (max-width: 600px) {
+  /* Reduzco el espacio interior. */
+  .employees-list-card {
+    padding: 20px;
+  }
+}
+
+/* Organizo los datos de cada empleado. */
+.employee-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+/* Destaco la fila al pasar el cursor. */
+.employee-item:hover {
+  background: #f1f5f9;
+  border-color: #c7d2fe;
+}
+
+/* Ajusto los textos de cada empleado. */
+.employee-item p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Destaco el nombre del empleado. */
+.employee-item p:first-child {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Diferencio visualmente el correo electrónico. */
+.employee-item p:nth-child(2) {
+  color: var(--text-secondary);
+}
+
+/* Diseño los botones de las acciones. */
+.btn-edit,
+.btn-delete {
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Diseño el botón Editar. */
+.btn-edit {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+/* Destaco el botón Editar al pasar el cursor. */
+.btn-edit:hover {
+  background: #e0e7ff;
+}
+
+/* Diseño el botón Eliminar. */
+.btn-delete {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* Destaco el botón Eliminar al pasar el cursor. */
+.btn-delete:hover {
+  background: #fee2e2;
+}
+
+/* Destaco los botones al navegar con teclado. */
+.btn-edit:focus-visible,
+.btn-delete:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Diseño el formulario de edición. */
+.edit-employee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px;
+  margin-bottom: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+/* Diseño el título del formulario. */
+.edit-employee-form h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+/* Diseño las etiquetas. */
+.edit-employee-form label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Diseño los campos de entrada. */
+.edit-employee-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+}
+
+/* Destaco el campo seleccionado. */
+.edit-employee-form input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+/* Configuro los estilos generales de ambos botones. */
+.btn-save,
+.btn-cancel {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Diseño el botón para guardar los cambios. */
+.btn-save {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+/* Cambio el color al pasar el cursor. */
+.btn-save:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+/* Diseño el botón para cancelar la edición. */
+.btn-cancel {
+  background: #f1f5f9;
+  color: var(--text);
+}
+
+/* Cambio el color al pasar el cursor. */
+.btn-cancel:hover:not(:disabled) {
+  background: #e2e8f0;
+}
+
+/* Identifico los botones deshabilitados. */
+.btn-save:disabled,
+.btn-cancel:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Destaco los botones al navegar con teclado. */
+.btn-save:focus-visible,
+.btn-cancel:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Diseño el buscador de empleados. */
+.employees-search {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+/* Destaco el buscador cuando está seleccionado. */
+.employees-search:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Adapto el texto del buscador a pantallas pequeñas. */
+.employees-search::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Diseño el mensaje cuando no hay resultados. */
+.employees-empty {
+  padding: 24px;
+  color: var(--text-secondary);
+  background: #f8fafc;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Diseño el contador de empleados. */
+.employees-count {
+  margin: -12px 0 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Diseño el mensaje de carga de empleados. */
+.employees-loading {
+  padding: 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Unifico el tamaño y apariencia de ambos botones. */
+.btn-edit,
+.btn-delete {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Diseño el botón Editar con tonos violetas. */
+.btn-edit {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+/* Diseño el botón Eliminar con tonos rojos suaves. */
+.btn-delete {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* Destaco el botón Editar al pasar el cursor. */
+.btn-edit:hover {
+  background: #e0e7ff;
+}
+
+/* Destaco el botón Eliminar al pasar el cursor. */
+.btn-delete:hover {
+  background: #fee2e2;
+}
+
+/* Organizo los datos de cada empleado. */
+.employee-item p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Diferencio visualmente los datos secundarios. */
+.employee-item p:not(:first-child) {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Organizo los botones horizontalmente. */
+.employee-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* Distribuyo el espacio entre ambos botones. */
+.employee-actions .btn-edit,
+.employee-actions .btn-delete {
+  flex: 1;
+  width: auto;
+}
+
+/* Adapto los botones a pantallas pequeñas. */
+@media (max-width: 480px) {
+  /* Coloco los botones verticalmente en celulares. */
+  .employee-actions {
+    flex-direction: column;
+  }
+}

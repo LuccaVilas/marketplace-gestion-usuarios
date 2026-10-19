@@ -1,0 +1,22 @@
+# Excluyo las dependencias instaladas.
+node_modules/
+
+# Excluyo las variables de entorno privadas.
+.env
+.env.*
+!.env.example
+
+# Excluyo la base de datos local.
+*.sqlite
+*.sqlite-*
+*.db
+
+# Excluyo los archivos generados al compilar.
+dist/
+
+# Excluyo registros de errores.
+*.log
+
+# Excluyo archivos temporales del sistema.
+.DS_Store
+Thumbs.db
