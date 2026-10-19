@@ -42,7 +42,7 @@ marketplace-gestion-usuarios/
 ### 1. Clonar el repositorio
 
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/LuccaVilas/marketplace-gestion-usuarios
 cd marketplace-gestion-usuarios
 ```
 
@@ -86,6 +86,30 @@ http://localhost:5173
 Se utiliza SQLite mediante Sequelize.
 
 La base de datos se genera automáticamente al iniciar el backend.
+
+## Pruebas automáticas
+
+El backend cuenta con pruebas automatizadas utilizando Jest y Supertest.
+
+Se verifican las siguientes operaciones:
+
+- GET: consulta de empleados.
+- POST: registro de empleados.
+- POST: rechazo de legajos duplicados.
+- PUT: actualización de email y domicilio.
+- DELETE: eliminación de empleados.
+
+### Ejecutar los tests
+
+Desde la carpeta `backend`:
+
+```bash
+npm test
+```
+
+Las pruebas utilizan una base de datos SQLite temporal en memoria, sin modificar los datos reales.
+
+**Resultado:** 5 pruebas aprobadas.
 
 ## Autor
 

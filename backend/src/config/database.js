@@ -4,15 +4,20 @@ const { Sequelize } = require("sequelize");
 // Importo path para trabajar con rutas de archivos.
 const path = require("path");
 
-// Creo la conexión con la base de datos SQLite.
+// Compruebo si estoy ejecutando pruebas automáticas.
+const isTest = process.env.NODE_ENV === "test";
+
+// Configuro SQLite con una base temporal para los tests.
 const sequelize = new Sequelize({
   // Defino SQLite como motor de base de datos.
   dialect: "sqlite",
 
-  // Defino dónde se guardará el archivo de la base de datos.
-  storage: path.join(__dirname, "../../database.sqlite"),
+  // Uso memoria durante los tests y un archivo en desarrollo.
+  storage: isTest
+    ? ":memory:"
+    : path.join(__dirname, "../../database.sqlite"),
 
-  // Desactivo los mensajes SQL en la consola.
+  // Desactivo los mensajes SQL en consola.
   logging: false,
 });
 
